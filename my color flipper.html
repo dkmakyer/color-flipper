@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color flipper project</title>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        background-color: rgb(163, 163, 33);
+        padding: 0;
+        margin: 0;
+        max-height: 15px;
+
+    }
+    .header{
+        background: blue;
+        margin: 0;
+        padding: 0;
+        transform: translateY(-30px);
+        border-radius: 5px;
+        box-shadow: 1px 1px 2px rgb(94, 94, 141), 2px 2px 4px rgb(73, 73, 123),3px 3px 6px rgb(110, 110, 183),4px 4px 8px rgb(123, 123, 184);
+    }
+    .header h3{
+        letter-spacing: 50px;
+        font-size: 30px;
+        color: rgb(223, 218, 218);
+        text-transform: uppercase;
+        height: 100px;
+    }
+    h1{
+        font-size: 30px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: rgb(186, 181, 181);
+    }
+    .middle{
+        margin:  100px 400px;
+    }
+    button{
+        width: 500px;
+        height: 100px;
+        border-radius: 5px;
+        text-transform: uppercase;
+        background: transparent;
+        border: 1px solid rgb(227, 223, 223);
+        cursor: pointer;
+        font-size: 30px;
+
+    }
+</style>
+</head>
+<body>
+    <div class="header">
+        <h3>color flipper</h3>
+    </div>
+    <div class="middle">
+        <h1>background color: <span class="color">#1231234</span></h1>
+        <button id="btn">color me pleaseee</button>
+    </div>
+    <script>
+        const figures = [1,2,3,4,5,6,7,8,9,0,"a","b","c","d","e"];
+
+const button = document.getElementById("btn");
+const span = document.querySelector(".color");
+
+button.addEventListener("click",()=>{
+    let hexCode = "#";
+    for(let i = 0; i < 6; i++){
+        hexCode += figures[getRandomIndex()]; 
+    }
+
+    span.innerHTML = hexCode;
+    document.body.style.backgroundColor = hexCode;
+});
+
+function getRandomIndex(){
+   return Math.floor(Math.random() * figures.length);
+}
+    </script>
+</body>
+</html>
